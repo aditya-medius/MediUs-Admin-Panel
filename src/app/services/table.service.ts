@@ -32,15 +32,19 @@ export class TableService {
     );
   };
 
-  getAllAgentList = () => {
-    return this.http.get(`${this.apiUrl}/getAllAgentList`).pipe(
+  getAllHospitalList = () => {
+    return this.http.get(`${this.apiUrl}/getAllHospitalList`).pipe(
       map((data: any) => {
-        return this.addHeaderNameToList(data, "Agents");
+        return this.addHeaderNameToList(data, "Hospitals");
       })
     );
   };
 
   verifyDoctors = (id: string) => {
     return this.http.put(`${this.apiUrl}/verifyDoctors/${id}`, {});
+  };
+
+  verifyHospital = (id: string) => {
+    return this.http.put(`${this.apiUrl}/verifyHospital/${id}`, {});
   };
 }

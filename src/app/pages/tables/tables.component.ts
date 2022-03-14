@@ -4,7 +4,7 @@ import { MatSlideToggleChange } from "@angular/material/slide-toggle";
 import { ToastrService } from "ngx-toastr";
 import { TableService } from "src/app/services/table.service";
 
-interface listData {
+export interface listData {
   header: string;
   list: Array<any>;
 }
@@ -21,15 +21,15 @@ export class TablesComponent implements OnInit {
   ) {}
 
   doctorData: listData | null = null;
-  agentData: listData | null = null;
+  hospitalData: listData | null = null;
   doctorList: Array<any> | null = null;
   ngOnInit() {
     Promise.all([
       this.tableService.getAllDoctorsList().toPromise(),
-      this.tableService.getAllAgentList().toPromise(),
+      this.tableService.getAllHospitalList().toPromise(),
     ]).then((result: any) => {
       this.getAllDoctorList(result[0]);
-      this.getAllAgentList(result[1]);
+      this.getAllHospitalList(result[1]);
     });
     // this.getAllDoctorsList();
   }
@@ -41,33 +41,23 @@ export class TablesComponent implements OnInit {
     };
   };
 
-  getAllAgentList = (data: any) => {
-    this.agentData = {
+  getAllHospitalList = (data: any) => {
+    this.hospitalData = {
       header: data.header,
       list: data.data.data,
     };
   };
-  // getAllDoctorsList = () => {
-  //   this.tableService.getAllDoctorsList().subscribe(
-  //     (result: any) => {
-  //       console.log("data:", result);
-  //       this.doctorList = result.data.data;
 
-  //       this.doctorData = {
-  //         header: result.header,
-  //         list: this.doctorList,
-  //       };
-  //     },
-  //     (error: HttpErrorResponse) => console.log("Error:", error)
-  //   );
-  // };
-
-  toggleVerify = (event: MatSlideToggleChange, id: string) => {
+  toggleDoctorVerify = (event: MatSlideToggleChange, id: string) => {
     this.tableService.verifyDoctors(id).subscribe(
       (result: any) => {
         if (result.status == 200) {
           this.toastr.success(result.message);
-          this.toggleVerifyStatus(id);
+          this.doctorData.list.forEach((e: any) => {
+            if (e.id == id) {
+              e["verified"] = true;
+            }
+          });
         } else if (result.status == 400) {
           this.toastr.error(result.message);
         }
@@ -76,11 +66,21 @@ export class TablesComponent implements OnInit {
     );
   };
 
-  toggleVerifyStatus = (id: string) => {
-    this.doctorList.forEach((e: any) => {
-      if (e.id == id) {
-        e["verified"] = true;
-      }
-    });
+  toggleHospitalVerify = (event: MatSlideToggleChange, id: string) => {
+    this.tableService.verifyHospital(id).subscribe(
+      (result: any) => {
+        if (result.status == 200) {
+          this.toastr.success(result.message);
+          this.hospitalData.list.forEach((e: any) => {
+            if (e._id == id) {
+              e["verified"] = true;
+            }
+          });
+        } else if (result.status == 400) {
+          this.toastr.error(result.message);
+        }
+      },
+      (error: HttpErrorResponse) => this.toastr.error(error.message)
+    );
   };
 }

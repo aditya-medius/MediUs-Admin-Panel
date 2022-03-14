@@ -15,6 +15,7 @@ import { TablesComponent } from "../../pages/tables/tables.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { SharedModule } from "src/app/shared/shared.module";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { ComponentsModule } from "src/app/components/components.module";
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -28,6 +29,7 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
     ClipboardModule,
     MatSlideToggleModule,
     SharedModule,
+    ComponentsModule
   ],
   declarations: [
     DashboardComponent,
