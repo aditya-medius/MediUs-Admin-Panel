@@ -9,6 +9,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { Router } from "@angular/router";
+import { isNumber } from "@ng-bootstrap/ng-bootstrap/util/util";
 import { ToastrService } from "ngx-toastr";
 import { LoginService } from "./login.service";
 
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       return null;
     };
   }
+  disableOTP: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -42,16 +44,15 @@ export class LoginComponent implements OnInit, OnDestroy {
       [
         Validators.required,
         Validators.minLength(10),
+        Validators.pattern("[- +()0-9]+"),
         this.phoneNumberValidation,
       ],
     ],
-    OTP: [""],
+    OTP: [{ value: "", disabled: this.disableOTP }],
   });
 
   ngOnInit() {}
   ngOnDestroy() {}
-
-  otpRequired: boolean = true;
 
   submitForm = () => {
     if (!this.loginForm.valid) {
@@ -61,12 +62,16 @@ export class LoginComponent implements OnInit, OnDestroy {
     let { phoneNumber, OTP } = this.loginForm.value;
     this.loginService.login(phoneNumber, OTP).subscribe(
       (result: any) => {
+        this.disableOTP = false;
+
+        this.loginForm.get("OTP").enable();
+
         if (result.status == 200) {
           this.toastrService.success(`${result.message}`);
           if (phoneNumber && OTP) {
             this.router.navigate(["/tables"]);
           }
-          this.setOptRequired();
+          // this.setOptRequired();
         } else if (result.status == 400) {
           if (result.type == "JsonWebTokenError") {
             this.toastrService.error("Invalid OTP");
@@ -77,8 +82,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     );
   };
 
-  setOptRequired = () => {
-    this.otpRequired = true;
-    this.loginForm.addControl("OTP", new FormControl("", Validators.required));
+  phoneNumberKeyPress = (event: any) => {
+    // console.log("kdksdds:", event);
+    console.log("dknsd", /[0-9]{11}/.test(event));
   };
+
+  // setOptRequired = () => {
+  //   this.otpRequired = true;
+  //   this.loginForm.addControl("OTP", new FormControl("", Validators.required));
+  // };
 }

@@ -59,6 +59,7 @@
                   formControlName="phoneNumber"
                   class="form-control"
                   placeholder="Phone Number"
+                  (keypress)="phoneNumberKeyPress($event.target.value)"
                 />
               </div>
             </div>
@@ -70,7 +71,6 @@
                   ></span>
                 </div>
                 <input
-                  [disabled]="otpRequired"
                   formControlName="OTP"
                   class="form-control"
                   placeholder="OTP"
@@ -93,7 +93,7 @@
               <input
                 type="submit"
                 class="btn btn-primary my-4"
-                value="Sign In"
+                [value]="!disableOTP ? 'Sign In' : 'Send OTP'"
               />
             </div>
           </form>
