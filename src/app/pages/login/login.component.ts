@@ -9,6 +9,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { Router } from "@angular/router";
+import { isNumber } from "@ng-bootstrap/ng-bootstrap/util/util";
 import { ToastrService } from "ngx-toastr";
 import { LoginService } from "./login.service";
 
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       return null;
     };
   }
+  disableOTP: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -46,8 +48,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit() {}
   ngOnDestroy() {}
 
-  otpRequired: boolean = true;
-
   submitForm = () => {
     if (!this.loginForm.valid) {
       this.toastrService.error("Enter proper values");
@@ -56,6 +56,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     let { phoneNumber, password } = this.loginForm.value;
     this.loginService.login(phoneNumber, password).subscribe(
       (result: any) => {
+        // this.disableOTP = false;
+
+        // this.loginForm.get("OTP").enable();
+
         if (result.status == 200) {
           this.toastrService.success(`${result.message}`);
           localStorage.setItem("admin", result);

@@ -59,6 +59,7 @@
                   formControlName="phoneNumber"
                   class="form-control"
                   placeholder="Phone Number"
+                  (keypress)="phoneNumberKeyPress($event.target.value)"
                 />
               </div>
             </div>
