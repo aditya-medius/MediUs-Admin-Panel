@@ -41,4 +41,13 @@ export class ListComponent implements OnInit {
   }
 
   toggleVerify = (): void => {};
+
+  navigateToDoctorDetailsPage = (data: any) => {
+    console.log("d:", data);
+    let {firstName, lastName, _id,hospitalDetails, gender, email,verified, phoneNumber } = data
+  };
+
+  navigateToHospitalDetailsPage = (data: any) => {
+    console.log("d:", data);
+  };
 }

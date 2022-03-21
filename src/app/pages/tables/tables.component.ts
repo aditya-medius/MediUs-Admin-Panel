@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { MatSlideToggleChange } from "@angular/material/slide-toggle";
+import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { TableService } from "src/app/services/table.service";
 
@@ -17,7 +18,8 @@ export interface listData {
 export class TablesComponent implements OnInit {
   constructor(
     private tableService: TableService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   doctorData: listData | null = null;
