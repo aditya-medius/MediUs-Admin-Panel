@@ -36,18 +36,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     private toastrService: ToastrService,
     private loginService: LoginService,
     private router: Router
-  ) {}
+  ) {
+    localStorage.removeItem("admin");
+  }
 
   loginForm = this.fb.group({
-    phoneNumber: [
-      "",
-      [
-        Validators.required,
-        Validators.minLength(10),
-        Validators.pattern("[- +()0-9]+"),
-        // this.phoneNumberValidation,
-      ],
-    ],
+    phoneNumber: ["", [Validators.required, Validators.minLength(10)]],
     password: ["", Validators.required],
   });
 
@@ -68,25 +62,16 @@ export class LoginComponent implements OnInit, OnDestroy {
 
         if (result.status == 200) {
           this.toastrService.success(`${result.message}`);
+          localStorage.setItem("admin", result);
           this.router.navigate(["/tables"]);
-          // if (phoneNumber && OTP) {
-          // }
-          // this.setOptRequired();
-        } else if (result.status == 401) {
+        } else if (result.status == 400) {
+          if (result.type == "JsonWebTokenError") {
+            this.toastrService.error("Invalid OTP");
+          }
           this.toastrService.error(result.message);
         }
       },
       (error: HttpErrorResponse) => this.toastrService.error(error.message)
     );
   };
-
-  phoneNumberKeyPress = (event: any) => {
-    // console.log("kdksdds:", event);
-    console.log("dknsd", /[0-9]{11}/.test(event));
-  };
-
-  // setOptRequired = () => {
-  //   this.otpRequired = true;
-  //   this.loginForm.addControl("OTP", new FormControl("", Validators.required));
-  // };
 }

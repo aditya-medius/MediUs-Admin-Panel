@@ -17,10 +17,11 @@
             <tr *ngFor="let d of dataCp">
               <th scope="row">
                 <div class="media align-items-center">
-                  <a class="avatar rounded-circle mr-3">
-                    <img [src]="d.image" />
-                  </a>
+                  <!-- <a class="avatar rounded-circle mr-3">
+                    <img [src]="d.image" (click)="navigateToDetailsPage"/>
+                  </a> -->
                   <div class="media-body" *ngIf="data.data.header == 'Doctors'">
+                    <!-- (click)="navigateToDoctorDetailsPage(d)" -->
                     <span class="mb-0 text-sm"
                       >{{ d.firstName }} {{ d.lastName }}</span
                     >
@@ -29,6 +30,7 @@
                     class="media-body"
                     *ngIf="data.data.header == 'Hospitals'"
                   >
+                    <!-- (click)="navigateToHospitalDetailsPage(d)" -->
                     <span class="mb-0 text-sm">{{ d.name }}</span>
                   </div>
                 </div>
