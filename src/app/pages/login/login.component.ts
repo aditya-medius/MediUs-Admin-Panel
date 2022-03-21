@@ -34,18 +34,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     private toastrService: ToastrService,
     private loginService: LoginService,
     private router: Router
-  ) {}
+  ) {
+    localStorage.removeItem("admin");
+  }
 
   loginForm = this.fb.group({
-    phoneNumber: [
-      "",
-      [
-        Validators.required,
-        Validators.minLength(10),
-        this.phoneNumberValidation,
-      ],
-    ],
-    OTP: [""],
+    phoneNumber: ["", [Validators.required, Validators.minLength(10)]],
+    password: ["", Validators.required],
   });
 
   ngOnInit() {}
@@ -58,27 +53,21 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.toastrService.error("Enter proper values");
       return;
     }
-    let { phoneNumber, OTP } = this.loginForm.value;
-    this.loginService.login(phoneNumber, OTP).subscribe(
+    let { phoneNumber, password } = this.loginForm.value;
+    this.loginService.login(phoneNumber, password).subscribe(
       (result: any) => {
         if (result.status == 200) {
           this.toastrService.success(`${result.message}`);
-          if (phoneNumber && OTP) {
-            this.router.navigate(["/tables"]);
-          }
-          this.setOptRequired();
+          localStorage.setItem("admin", result);
+          this.router.navigate(["/tables"]);
         } else if (result.status == 400) {
           if (result.type == "JsonWebTokenError") {
             this.toastrService.error("Invalid OTP");
           }
+          this.toastrService.error(result.message);
         }
       },
       (error: HttpErrorResponse) => this.toastrService.error(error.message)
     );
-  };
-
-  setOptRequired = () => {
-    this.otpRequired = true;
-    this.loginForm.addControl("OTP", new FormControl("", Validators.required));
   };
 }
