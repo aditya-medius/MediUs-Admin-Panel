@@ -45,10 +45,10 @@ export class LoginComponent implements OnInit, OnDestroy {
         Validators.required,
         Validators.minLength(10),
         Validators.pattern("[- +()0-9]+"),
-        this.phoneNumberValidation,
+        // this.phoneNumberValidation,
       ],
     ],
-    OTP: [{ value: "", disabled: this.disableOTP }],
+    password: ["", Validators.required],
   });
 
   ngOnInit() {}
@@ -59,23 +59,21 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.toastrService.error("Enter proper values");
       return;
     }
-    let { phoneNumber, OTP } = this.loginForm.value;
-    this.loginService.login(phoneNumber, OTP).subscribe(
+    let { phoneNumber, password } = this.loginForm.value;
+    this.loginService.login(phoneNumber, password).subscribe(
       (result: any) => {
-        this.disableOTP = false;
+        // this.disableOTP = false;
 
-        this.loginForm.get("OTP").enable();
+        // this.loginForm.get("OTP").enable();
 
         if (result.status == 200) {
           this.toastrService.success(`${result.message}`);
-          if (phoneNumber && OTP) {
-            this.router.navigate(["/tables"]);
-          }
+          this.router.navigate(["/tables"]);
+          // if (phoneNumber && OTP) {
+          // }
           // this.setOptRequired();
-        } else if (result.status == 400) {
-          if (result.type == "JsonWebTokenError") {
-            this.toastrService.error("Invalid OTP");
-          }
+        } else if (result.status == 401) {
+          this.toastrService.error(result.message);
         }
       },
       (error: HttpErrorResponse) => this.toastrService.error(error.message)
