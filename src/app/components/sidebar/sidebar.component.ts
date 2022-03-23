@@ -19,7 +19,8 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/location",
     title: "Location",
-    icon: "ni-single-02 text-yellow",
+    icon: "ni ni-square-pin text-yellow",
+    // ni ni-square-pin text-yellow
     class: "",
   },
   {

@@ -21,6 +21,10 @@ export class SingleFieldFormComponent implements OnInit {
     if (change.sff_Options.currentValue) {
       let options = change.sff_Options.currentValue;
       this.submit = () => {
+        if (this.form.invalid) {
+          this.toastr.error("Enter proper values");
+          return;
+        }
         let { name } = this.form.value;
         options["cb"](this.toTitleCase(name)).subscribe(
           (result: any) => {
