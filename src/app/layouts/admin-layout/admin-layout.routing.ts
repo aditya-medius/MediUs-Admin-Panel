@@ -6,6 +6,7 @@ import { MapsComponent } from "../../pages/maps/maps.component";
 import { UserProfileComponent } from "../../pages/user-profile/user-profile.component";
 import { TablesComponent } from "../../pages/tables/tables.component";
 import { AuthGuard } from "src/app/shared/auth.guard";
+import { SpecializationsComponent } from "src/app/pages/specializations/specializations.component";
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -21,4 +22,9 @@ export const AdminLayoutRoutes: Routes = [
   { canActivate: [AuthGuard], path: "tables", component: TablesComponent },
   { canActivate: [AuthGuard], path: "icons", component: IconsComponent },
   { canActivate: [AuthGuard], path: "maps", component: MapsComponent },
+  {
+    canActivate: [AuthGuard],
+    path: "specializations",
+    component: SpecializationsComponent,
+  },
 ];

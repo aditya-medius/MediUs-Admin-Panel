@@ -7,7 +7,7 @@ import { LocationService } from "src/app/services/location.service";
   styleUrls: ["./user-profile.component.scss"],
 })
 export class UserProfileComponent implements OnInit {
-  constructor(private locationService: LocationService) {}
+  constructor(private locationService?: LocationService) {}
 
   sff_data: Array<{ title: string; cb: Function }> | null = null;
   ngOnInit() {
