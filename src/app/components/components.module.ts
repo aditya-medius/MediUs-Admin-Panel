@@ -8,6 +8,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ListComponent } from "./list/list.component";
 import { SharedModule } from "../shared/shared.module";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { SingleFieldFormComponent } from "./single-field-form/single-field-form.component";
 
 @NgModule({
   imports: [
@@ -22,7 +23,14 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     NavbarComponent,
     SidebarComponent,
     ListComponent,
+    SingleFieldFormComponent,
   ],
-  exports: [FooterComponent, NavbarComponent, SidebarComponent, ListComponent],
+  exports: [
+    FooterComponent,
+    NavbarComponent,
+    SidebarComponent,
+    ListComponent,
+    SingleFieldFormComponent,
+  ],
 })
 export class ComponentsModule {}
