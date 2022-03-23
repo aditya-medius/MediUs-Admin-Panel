@@ -14,6 +14,7 @@ import { AppRoutingModule } from "./app.routing";
 import { ComponentsModule } from "./components/components.module";
 
 import { ToastrModule } from "ngx-toastr";
+import { SpecializationsComponent } from './pages/specializations/specializations.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,7 @@ import { ToastrModule } from "ngx-toastr";
     AppRoutingModule,
     ToastrModule.forRoot(),
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, SpecializationsComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
