@@ -18,11 +18,11 @@ export class SpecializationsComponent
   ngOnInit(): void {
     this.sff_data = [
       { title: "Speciality", cb: this.specializationService.addSpeciality },
-      { title: "BodyPart", cb: this.specializationService.addBodyPart },
+      { title: "Body Part", cb: this.specializationService.addBodyPart },
       { title: "Disease", cb: this.specializationService.addDisease },
-      { title: "DoctorType", cb: this.specializationService.addDoctorType },
+      { title: "Doctor Type", cb: this.specializationService.addDoctorType },
       {
-        title: "HospitalService",
+        title: "Hospital Service",
         cb: this.specializationService.addHospitalService,
       },
     ];
