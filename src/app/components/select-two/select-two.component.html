@@ -13,12 +13,13 @@
           <div class="col-lg-6">
             <div class="form-group">
               <select
-                formControlName="select"
+                formControlName="select1"
                 class="form-control form-control-alternative"
+                *ngIf="select1"
               >
                 <option value="" selected>Select</option>
-                <option *ngFor="let data of select1" [value]="data">
-                  {{ data }}
+                <option *ngFor="let data of select1" [value]="data._id">
+                  {{ data.name }}
                 </option>
               </select>
             </div>
@@ -26,12 +27,14 @@
           <div class="col-lg-6">
             <div class="form-group">
               <select
-                formControlName="select"
+                formControlName="select2"
                 class="form-control form-control-alternative"
+                *ngIf="select2"
+                multiple
               >
                 <option value="" selected>Select</option>
-                <option *ngFor="let data of select2" [value]="data">
-                  {{ data }}
+                <option *ngFor="let data of select2" [value]="data._id">
+                  {{ data.name }}
                 </option>
               </select>
             </div>

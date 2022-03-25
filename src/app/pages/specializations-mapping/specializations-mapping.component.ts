@@ -25,12 +25,38 @@ export class SpecializationsMappingComponent
           {
             title: "Speciality & Body Map",
             cb: this.specializationService.addSpecialityBody,
-            options: { select1: data["Speciality"], select2: data["BodyPart"] },
+            options: {
+              select1: data["Speciality"].map((e) => {
+                return {
+                  name: e.specialityName,
+                  _id: e._id,
+                };
+              }),
+              select2: data["BodyPart"].map((e) => {
+                return {
+                  name: e.bodyPart,
+                  _id: e._id,
+                };
+              }),
+            },
           },
           {
             title: "Speciality & disease Map",
             cb: this.specializationService.addSpecialityDisease,
-            options: { select1: data["Speciality"], select2: data["Disease"] },
+            options: {
+              select1: data["Speciality"].map((e) => {
+                return {
+                  name: e.specialityName,
+                  _id: e._id,
+                };
+              }),
+              select2: data["Disease"].map((e) => {
+                return {
+                  name: e.disease,
+                  _id: e._id,
+                };
+              }),
+            },
           },
           // {
           //   title: "Speciality & Doctor Type Map",

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from "@angular/core";
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
 import { SingleFieldFormComponent } from "../single-field-form/single-field-form.component";
@@ -10,7 +10,7 @@ import { SingleFieldFormComponent } from "../single-field-form/single-field-form
 })
 export class SelectTwoComponent
   extends SingleFieldFormComponent
-  implements OnInit
+  implements OnInit, OnChanges
 {
   constructor(protected fb?: FormBuilder, protected toastr?: ToastrService) {
     super(fb, toastr);
