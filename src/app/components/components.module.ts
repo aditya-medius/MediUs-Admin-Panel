@@ -9,6 +9,8 @@ import { ListComponent } from "./list/list.component";
 import { SharedModule } from "../shared/shared.module";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { SingleFieldFormComponent } from "./single-field-form/single-field-form.component";
+import { InputOneSelectOneComponent } from "./input-one-select-one/input-one-select-one.component";
+import { SelectTwoComponent } from "./select-two/select-two.component";
 
 @NgModule({
   imports: [
@@ -24,6 +26,8 @@ import { SingleFieldFormComponent } from "./single-field-form/single-field-form.
     SidebarComponent,
     ListComponent,
     SingleFieldFormComponent,
+    InputOneSelectOneComponent,
+    SelectTwoComponent,
   ],
   exports: [
     FooterComponent,
@@ -31,6 +35,8 @@ import { SingleFieldFormComponent } from "./single-field-form/single-field-form.
     SidebarComponent,
     ListComponent,
     SingleFieldFormComponent,
+    InputOneSelectOneComponent,
+    SelectTwoComponent,
   ],
 })
 export class ComponentsModule {}

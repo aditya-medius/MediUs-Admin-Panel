@@ -31,6 +31,13 @@ export const ROUTES: RouteInfo[] = [
     class: "",
   },
   {
+    path: "/specializations-mapping",
+    title: "Specializations-mapping",
+    icon: "ni ni-tag text-green",
+    // ni ni-square-pin text-yellow
+    class: "",
+  },
+  {
     path: "/tables",
     title: "Tables",
     icon: "ni-bullet-list-67 text-red",

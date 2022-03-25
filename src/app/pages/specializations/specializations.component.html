@@ -70,8 +70,18 @@
           </div>
         </div>
       </div> -->
-    <div class="col-xl-8 order-xl-1 mt-4" *ngFor="let data of sff_data">
-      <app-single-field-form [sff-options]="data"></app-single-field-form>
+    <div
+      class="col-xl-8 order-xl-1 mt-4"
+      *ngFor="let data of sff_data; let last = last"
+    >
+      <app-single-field-form
+        *ngIf="!last"
+        [sff-options]="data"
+      ></app-single-field-form>
+      <app-input-one-select-one
+        *ngIf="last"
+        [I1S1-options]="data"
+      ></app-input-one-select-one>
       <!-- <div class="card bg-secondary shadow">
           <div class="card-header bg-white border-0">
             <div class="row align-items-center">
