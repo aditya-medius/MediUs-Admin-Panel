@@ -8,7 +8,7 @@ import { ToastrService } from "ngx-toastr";
   styleUrls: ["./single-field-form.component.scss"],
 })
 export class SingleFieldFormComponent implements OnInit {
-  constructor(private fb: FormBuilder, private toastr: ToastrService) {}
+  constructor(protected fb?: FormBuilder, protected toastr?: ToastrService) {}
 
   @Input("sff-options") sff_Options: any | null = null;
 
@@ -27,20 +27,22 @@ export class SingleFieldFormComponent implements OnInit {
         }
         let { name } = this.form.value;
         options["cb"](this.toTitleCase(name)).subscribe(
-          (result: any) => {
-            if (result.status == 200) {
-              this.toastr.success(result.message);
-              this.form.reset();
-            } else if (result.status == 400) {
-              this.toastr.error(result.message);
-            }
-          },
+          this.handleSuccessResponse,
           (error: any) => this.toastr.error(error.message)
         );
       };
       this.title = options["title"];
     }
   }
+
+  handleSuccessResponse = (result: any) => {
+    if (result.status == 200) {
+      this.toastr.success(result.message);
+      this.form.reset();
+    } else if (result.status == 400) {
+      this.toastr.error(result.message);
+    }
+  };
 
   title: string = "";
   submit = () => {};

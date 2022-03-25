@@ -4,7 +4,7 @@ import { UserProfileComponent } from "../user-profile/user-profile.component";
 
 @Component({
   selector: "app-specializations",
-  templateUrl: "../user-profile/user-profile.component.html",
+  templateUrl: "./specializations.component.html",
   styleUrls: ["./specializations.component.scss"],
 })
 export class SpecializationsComponent
@@ -23,6 +23,7 @@ export class SpecializationsComponent
       { title: "Doctor Type", cb: this.specializationService.addDoctorType },
       {
         title: "Hospital Service",
+        options: ["Primary", "Secondary"],
         cb: this.specializationService.addHospitalService,
       },
     ];

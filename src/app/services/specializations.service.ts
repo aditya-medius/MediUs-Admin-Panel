@@ -11,6 +11,7 @@ export class SpecializationsService {
     this.apiUrl = `${this.util.apiUrl()}/admin`;
   }
 
+  /* Single data - POST */
   addSpeciality = (name: string) => {
     return this.http.post(
       `${this.apiUrl}/addSpeciality`,
@@ -31,7 +32,50 @@ export class SpecializationsService {
       {}
     );
   };
-  addHospitalService = (name: string) => {
-    return this.http.post(`${this.apiUrl}/addHospitalService`, { name }, {});
+  addHospitalService = (name: string, serviceType: string) => {
+    return this.http.post(
+      `${this.apiUrl}/addHospitalService`,
+      { name, serviceType },
+      {}
+    );
+  };
+
+  /* Mapping - POST */
+  addSpecialityBody = (speciality: string, bodyParts: Array<string>) => {
+    return this.http.post(
+      `${this.apiUrl}/addSpecialityBody`,
+      {
+        speciality,
+        bodyParts,
+      },
+      {}
+    );
+  };
+
+  addSpecialityDisease = (speciality: string, disease: Array<string>) => {
+    return this.http.post(
+      `${this.apiUrl}/addSpecialityDisease`,
+      {
+        speciality,
+        disease,
+      },
+      {}
+    );
+  };
+
+  addSpecialityDoctorType = (speciality: string, doctorType: Array<string>) => {
+    return this.http.post(
+      `${this.apiUrl}/addSpecialityDoctorType`,
+      {
+        speciality,
+        doctorType,
+      },
+      {}
+    );
+  };
+
+  /* Fields - GET */
+  getSpecialityBodyPartAndDisease = () => {
+    return this.http.get(`${this.apiUrl}/getListOfSpecialityBodyPartAndDisease`, {});
   };
 }

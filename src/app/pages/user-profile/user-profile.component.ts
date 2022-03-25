@@ -9,7 +9,7 @@ import { LocationService } from "src/app/services/location.service";
 export class UserProfileComponent implements OnInit {
   constructor(private locationService?: LocationService) {}
 
-  sff_data: Array<{ title: string; cb: Function }> | null = null;
+  sff_data: Array<any> | null = null;
   ngOnInit() {
     this.sff_data = [
       { title: "City", cb: this.locationService.addCity },
