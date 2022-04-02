@@ -16,6 +16,7 @@ import { ComponentsModule } from "./components/components.module";
 import { ToastrModule } from "ngx-toastr";
 import { SpecializationsComponent } from './pages/specializations/specializations.component';
 import { SpecializationsMappingComponent } from './pages/specializations-mapping/specializations-mapping.component';
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { SpecializationsMappingComponent } from './pages/specializations-mapping
     RouterModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
+    SharedModule
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, SpecializationsComponent, SpecializationsMappingComponent],
   providers: [],
