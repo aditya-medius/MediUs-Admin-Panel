@@ -76,6 +76,9 @@ export class SpecializationsService {
 
   /* Fields - GET */
   getSpecialityBodyPartAndDisease = () => {
-    return this.http.get(`${this.apiUrl}/getListOfSpecialityBodyPartAndDisease`, {});
+    return this.http.get(
+      `${this.apiUrl}/getListOfSpecialityBodyPartAndDisease`,
+      {}
+    );
   };
 }
