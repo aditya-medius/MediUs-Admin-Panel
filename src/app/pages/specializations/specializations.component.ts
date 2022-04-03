@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { SpecializationsService } from "src/app/services/specializations.service";
 import { UserProfileComponent } from "../user-profile/user-profile.component";

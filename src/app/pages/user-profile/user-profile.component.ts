@@ -18,4 +18,14 @@ export class UserProfileComponent implements OnInit {
       { title: "Country", cb: this.locationService.addCountry },
     ];
   }
+
+  postFile(fileToUpload: File) {
+    fileToUpload = fileToUpload[0];
+    const formData: FormData = new FormData();
+    formData.append("file", fileToUpload, fileToUpload.name);
+    this.locationService.uploadCSV_state(formData).subscribe((result: any) => {
+      if (result.status === 200) {
+      }
+    });
+  }
 }
