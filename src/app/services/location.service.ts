@@ -50,4 +50,12 @@ export class LocationService {
   uploadCSV_state = (formData: FormData) => {
     return this.http.post(`${this.apiUrl}/uploadCSV_state`, formData);
   };
+
+  uploadCSV_city = (formData: FormData) => {
+    return this.http.post(`${this.apiUrl}/uploadCSV_city`, formData);
+  };
+
+uploadCSV_locality = (formData: FormData) => {
+    return this.http.post(`${this.apiUrl}/uploadCSV_locality`, formData);
+  };
 }
