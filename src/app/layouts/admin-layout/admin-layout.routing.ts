@@ -8,6 +8,7 @@ import { TablesComponent } from "../../pages/tables/tables.component";
 import { AuthGuard } from "src/app/shared/auth.guard";
 import { SpecializationsComponent } from "src/app/pages/specializations/specializations.component";
 import { SpecializationsMappingComponent } from "src/app/pages/specializations-mapping/specializations-mapping.component";
+import { DoctorComponent } from "src/app/pages/doctor/doctor.component";
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -33,4 +34,10 @@ export const AdminLayoutRoutes: Routes = [
     path: "specializations-mapping",
     component: SpecializationsMappingComponent,
   },
+  {
+    canActivate: [AuthGuard],
+    path: "doctor",
+    component: DoctorComponent,
+  },
+   
 ];

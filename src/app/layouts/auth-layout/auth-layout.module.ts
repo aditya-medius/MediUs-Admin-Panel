@@ -14,7 +14,7 @@ import { SharedModule } from "src/app/shared/shared.module";
     RouterModule.forChild(AuthLayoutRoutes),
     FormsModule,
     SharedModule,
-    // NgbModule
+    NgbModule
   ],
   declarations: [LoginComponent, RegisterComponent],
 })
