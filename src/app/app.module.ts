@@ -30,7 +30,8 @@ import { SharedModule } from "./shared/shared.module";
     ToastrModule.forRoot(),
     SharedModule
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, SpecializationsComponent, SpecializationsMappingComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, 
+  SpecializationsComponent, SpecializationsMappingComponent,],
   providers: [],
   bootstrap: [AppComponent],
 })

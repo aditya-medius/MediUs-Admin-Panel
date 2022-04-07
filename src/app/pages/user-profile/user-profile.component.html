@@ -85,23 +85,41 @@
         <h2>Upload States</h2>
         <label for="file">Choose File</label>
         <input type="file" id="file" (change)="postFile($event.target.files)" />
-        <br>
-        <button class="btn-success" (click)="showToasterSuccess()">Success Toaster</button>
-
+        <br />
+        <button
+          class="btn-success form-control form-control-alternative"
+          (click)="upload(1)"
+        >
+          Submit
+        </button>
       </div>
       <div class="form-group">
-        <h2>Choose  City</h2>
+        <h2>Choose City</h2>
         <label for="file">Choose File</label>
         <input type="file" id="file" (change)="postCity($event.target.files)" />
-        <br>
-        <button class="btn-success" (click)="showToasterSuccess()">Success file</button>
+        <br />
+        <button
+          class="btn-success form-control form-control-alternative"
+          (click)="upload(2)"
+        >
+          Submit
+        </button>
       </div>
       <div class="form-group">
-        <h2>Find Locality</h2>
+        <h2>Upload Locality</h2>
         <label for="file">Choose File</label>
-        <input type="file" id="file" (change)="postLocality($event.target.files)" />
-        <br>
-        <button class="btn-success" (click)="showToasterSuccess()">Success upload</button>
+        <input
+          type="file"
+          id="file"
+          (change)="postLocality($event.target.files)"
+        />
+        <br />
+        <button
+          class="btn-success form-control form-control-alternative"
+          (click)="upload(3)"
+        >
+          Submit
+        </button>
       </div>
     </div>
   </div>
