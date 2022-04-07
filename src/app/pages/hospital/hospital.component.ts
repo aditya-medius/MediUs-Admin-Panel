@@ -20,16 +20,15 @@ export class HospitalComponent implements OnInit {
     private tableService: TableService,
     private toastr: ToastrService,
     private router: Router
-  ) {}
-
+  ) { }
   hospitalData: listData | null = null;
 
   ngOnInit(): void {
-    Promise.all([this.tableService.getAllHospitalList().toPromise()]).then(
-      (result: any) => {
-        this.getAllHospitalList(result[0]);
-      }
-    );
+    Promise.all([
+      this.tableService.getAllHospitalList().toPromise(),
+    ]).then((result: any) => {
+      this.getAllHospitalList(result[0]);
+    });
     // this.getAllDoctorsList();
   }
 
