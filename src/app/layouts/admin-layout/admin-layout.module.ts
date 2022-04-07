@@ -16,7 +16,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { SharedModule } from "src/app/shared/shared.module";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { ComponentsModule } from "src/app/components/components.module";
-
+import { DoctorComponent} from "src/app/pages/doctor/doctor.component";
+import  {HospitalComponent} from "src/app/pages/hospital/hospital.component"
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -37,6 +38,8 @@ import { ComponentsModule } from "src/app/components/components.module";
     TablesComponent,
     IconsComponent,
     MapsComponent,
+    DoctorComponent,
+    HospitalComponent,
   ],
 })
 export class AdminLayoutModule {}
