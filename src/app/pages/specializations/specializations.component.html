@@ -1,6 +1,4 @@
-<div
-  class="header bg-gradient-danger pb-8 pt-5 pt-lg-8 d-flex align-items-center"
->
+<div class="header bg-gradient-danger pb-8 pt-5 pt-lg-8 d-flex align-items-center">
   <div class="container-fluid">
     <div class="header-body">
       <!-- Mask -->
@@ -18,6 +16,56 @@
     </div>
   </div>
 </div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Image Column -->
+  <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef>Image</th>
+    <td mat-cell *matCellDef="let element"><img src="{{element.image}}" height="30px" width="30px"> </td>
+    
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<div *ngFor="let user of arr">
+  {{user.id}}
+  {{user.userid}}
+</div>
+<div class="fill">
+  <div class="form-group">
+    <h2>Upload File Heading</h2>
+    <label for="file"> File</label>
+    <input type="file" id="file"/>
+    <br>
+    <label for="write here">Write</label>
+    <input type="text"  [(ngModel)]="textInput" />
+    <button (click)="onClick($event)">Click me!</button>
+          
+    <p>{{ displayValue }}</p>
+
+   </div>
+   </div>
+   <div *ngFor="let com of data">
+    {{com.postid}}
+    {{com.id}}
+    {{com.name}}
+    {{com.email}}
+    {{com.body}}
+  </div>
+
+
+
+
 <div class="container-fluid mt--7">
   <div class="row d-flex justify-content-center">
     <!-- <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
