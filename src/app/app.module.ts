@@ -17,6 +17,7 @@ import { ToastrModule } from "ngx-toastr";
 import { SpecializationsComponent } from './pages/specializations/specializations.component';
 import { SpecializationsMappingComponent } from './pages/specializations-mapping/specializations-mapping.component';
 import { SharedModule } from "./shared/shared.module";
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   imports: [
@@ -28,10 +29,11 @@ import { SharedModule } from "./shared/shared.module";
     RouterModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
-    SharedModule
+    SharedModule,
+    MatTableModule,
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, 
-  SpecializationsComponent, SpecializationsMappingComponent,],
+  SpecializationsComponent, SpecializationsMappingComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
