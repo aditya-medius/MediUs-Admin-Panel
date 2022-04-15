@@ -11,7 +11,7 @@ export class UserProfileComponent implements OnInit {
   title = "toaster-not";
   constructor(
     private locationService?: LocationService,
-    private toastr?: ToastrService
+    protected toastr?: ToastrService
   ) {}
   showToasterSuccess() {
     this.toastr.success(
