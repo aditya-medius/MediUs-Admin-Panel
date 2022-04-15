@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { SpecializationsService } from "src/app/services/specializations.service";
 import { UserProfileComponent } from "../user-profile/user-profile.component";
 import { HttpService } from 'src/app/services/http.service';
+import { ToastrService } from "ngx-toastr";
 
 export interface PeriodicElement {
   image: string;
@@ -35,8 +36,15 @@ export class SpecializationsComponent
    displayValue: string;
   posts: any;
   constructor(private specializationService: SpecializationsService,
-    private httpService: HttpService) {
+    private httpService: HttpService, protected toastr?: ToastrService) {
     super();
+  }
+
+  showToasterSuccess() {
+    this.toastr.success(
+      "Data shown successfully !!",
+      "Data shown successfully !!"
+    );
   }
 
   ngOnInit(): void {
@@ -70,9 +78,20 @@ export class SpecializationsComponent
   }
   onClick(event){
     console.log(this.textInput);
-    this.httpService.dataFun().subscribe(
+
+    this.httpService.dataFun(this.textInput).subscribe(
       (result:any) => {
+
         console.log(result);
+        
+          if (result.status === 200) {
+            this.toastr.success(result.message);
+          } 
+          else {
+            this.toastr.error(
+              "Upload unsuccessful."
+            );
+          }
       }
     )
   }
