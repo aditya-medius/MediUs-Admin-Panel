@@ -11,12 +11,11 @@ export interface listData {
 }
 
 @Component({
-  selector: 'app-hospital',
-  templateUrl: './hospital.component.html',
-  styleUrls: ['./hospital.component.scss']
+  selector: "app-hospital",
+  templateUrl: "./hospital.component.html",
+  styleUrls: ["./hospital.component.scss"],
 })
 export class HospitalComponent implements OnInit {
-
   constructor(
     private tableService: TableService,
     private toastr: ToastrService,
@@ -57,7 +56,4 @@ export class HospitalComponent implements OnInit {
       (error: HttpErrorResponse) => this.toastr.error(error.message)
     );
   };
-
-  }
-
-
+}
