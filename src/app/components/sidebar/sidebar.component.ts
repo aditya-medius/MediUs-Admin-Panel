@@ -16,20 +16,20 @@ export const ROUTES: RouteInfo[] = [
   // },
   // { path: "/icons", title: "Icons", icon: "ni-planet text-blue", class: "" },
   // { path: "/maps", title: "Maps", icon: "ni-pin-3 text-orange", class: "" },
-  /*{
+  {
     path: "/location",
     title: "Location",
     icon: "ni ni-square-pin text-yellow",
     // ni ni-square-pin text-yellow
     class: "",
-  },*/
-  {
-    path: "/specializations",
-    title: "Specializations",
-    icon: "ni ni-tag text-blue",
-    // ni ni-square-pin text-yellow
-    class: "",
   },
+  // {
+  //   path: "/specializations",
+  //   title: "Specializations",
+  //   icon: "ni ni-tag text-blue",
+  //   // ni ni-square-pin text-yellow
+  //   class: "",
+  // },
   {
     path: "/specializations-mapping",
     title: "Specializations-mapping",
@@ -37,15 +37,20 @@ export const ROUTES: RouteInfo[] = [
     // ni ni-square-pin text-yellow
     class: "",
   },
+  // {
+  //   path: "/tables",
+  //   title: "Tables",
+  //   icon: "ni-bullet-list-67 text-red",
+  //   class: "",
+  // },
+  { path: "/doctor", title: "Doctor", icon: "ni-key-25 text-info", class: "" },
   {
-    path: "/tables",
-    title: "Tables",
-    icon: "ni-bullet-list-67 text-red",
+    path: "/hospital",
+    title: "Hospital",
+    icon: "ni-key-25 text-info",
     class: "",
   },
   { path: "/login", title: "Logout", icon: "ni-key-25 text-info", class: "" },
-  { path: "/doctor", title: "Doctor", icon: "ni-key-25 text-info", class: "" },
-  { path: "/hospital", title: "Hospital", icon: "ni-key-25 text-info", class: "" },
 
   // {
   //   path: "/register",
