@@ -16,13 +16,13 @@ export const ROUTES: RouteInfo[] = [
   // },
   // { path: "/icons", title: "Icons", icon: "ni-planet text-blue", class: "" },
   // { path: "/maps", title: "Maps", icon: "ni-pin-3 text-orange", class: "" },
-  /*{
+  {
     path: "/location",
     title: "Location",
     icon: "ni ni-square-pin text-yellow",
     // ni ni-square-pin text-yellow
     class: "",
-  },*/
+  },
   {
     path: "/specializations",
     title: "Specializations",

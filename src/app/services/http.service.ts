@@ -17,12 +17,12 @@ export class HttpService {
     return this.http.get("https://jsonplaceholder.typicode.com/comments?postId=1")
   }
 
-  dataFun()
+  dataFun(para)
   {
     return this.http.post(
       'http://3.21.52.154:3000/admin/addSpeciality',
       {
-        specialityName:"i am  API"
+        specialityName:para,
       }
     )
   }
