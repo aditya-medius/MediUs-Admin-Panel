@@ -66,7 +66,7 @@ export class SpecializationsComponent
         this.ELEMENT_DATA = result.data.Speciality.map((e: any) => {
           return {
             name: e.specialityName,
-            image: e.specialityName,
+            image: e.img,
           };
         });
         this.dataSource = this.ELEMENT_DATA;
