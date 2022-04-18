@@ -4,6 +4,7 @@ import { SpecializationsService } from "src/app/services/specializations.service
 import { UserProfileComponent } from "../user-profile/user-profile.component";
 import { HttpService } from 'src/app/services/http.service';
 import { ToastrService } from "ngx-toastr";
+import { FormControl, FormGroup } from "@angular/forms";
 
 export interface PeriodicElement {
   image: string;
@@ -35,6 +36,9 @@ export class SpecializationsComponent
    textInput = '';
    displayValue: string;
   posts: any;
+
+  signupForm:  FormGroup;
+
   constructor(private specializationService: SpecializationsService,
     private httpService: HttpService, protected toastr?: ToastrService) {
     super();
@@ -75,7 +79,26 @@ export class SpecializationsComponent
             },
             (error:any) => { console.log(error); });
         } )
+
+        this.signupForm = new FormGroup({
+          user_name: new FormControl(null),
+          user_email: new FormControl(null),
+          password_group: new FormGroup({
+                user_password: new FormControl(null),
+                user_confirmPassword: new FormControl(null),
+              }),
+          user_phone: new FormControl(null),
+     user_gender: new FormControl('Male'),
+          user_city: new FormControl('Ahmedabad'),
+          user_notification: new FormControl('email')
+        });
   }
+  onSubmit() {
+    console.log(this.signupForm);
+    console.log(this.signupForm.get("user_name").value);
+    }
+  
+
   onClick(event){
     console.log(this.textInput);
 
@@ -87,8 +110,8 @@ export class SpecializationsComponent
           } 
           else {
             this.toastr.error(
-              "Upload unsuccessful."
-            );
+              "Unload Function"
+            )
           }
       }
     )
