@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
         if (result.status == 200) {
           this.toastrService.success(`${result.message}`);
-          localStorage.setItem("admin", result);
+          localStorage.setItem("admin", JSON.stringify(result));
           this.router.navigate(["/tables"]);
         } else if (result.status == 400) {
           if (result.type == "JsonWebTokenError") {

@@ -1,29 +1,40 @@
-import { Injectable } from '@angular/core';
-import { HttpClient,} from  '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class HttpService {
-  private url = 'https://jsonplaceholder.typicode.com/posts';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getPosts() {
-    return this.http.get(this.url);
+  dataFun(para) {
+    return this.http.post("http://3.21.52.154:3000/admin/addSpeciality", {
+      specialityName: para,
+    });
   }
 
-  getcomments(){
-    return this.http.get("https://jsonplaceholder.typicode.com/comments?postId=1")
+  uploadImage(form: FormData) {
+    let token = JSON.parse(localStorage.getItem("admin")).data;
+    const headers = new HttpHeaders({
+      "auth-header": token,
+    });
+    headers.append("Content-Type", "application/x-www-form-urlencoded");
+    headers.append("Accept", "application/json");
+    return this.http.post("http://3.21.52.154:3000/common/uploadImage", form, {
+      headers: headers,
+    });
   }
 
-  dataFun(para)
-  {
-    return this.http.post(
-      'http://3.21.52.154:3000/admin/addSpeciality',
+  getListOfSpecialityBodyPartAndDisease() {
+    let token = JSON.parse(localStorage.getItem("admin")).data;
+    const headers = new HttpHeaders({
+      "auth-header": token,
+    });
+    return this.http.get(
+      "http://3.21.52.154:3000/admin/getListOfSpecialityBodyPartAndDisease",
       {
-        specialityName:para,
+        headers: headers,
       }
-    )
+    );
   }
 }
