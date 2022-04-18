@@ -80,12 +80,10 @@ export class SpecializationsComponent
     console.log(this.textInput);
 
     this.httpService.dataFun(this.textInput).subscribe(
-      (result:any) => {
-
-        console.log(result);
-        
+      (result:any) => {        
           if (result.status === 200) {
             this.toastr.success(result.message);
+            console.log(result);
           } 
           else {
             this.toastr.error(
@@ -95,8 +93,6 @@ export class SpecializationsComponent
       }
     )
   }
-
-
   displayedColumns: string[] = ['name', 'image',];
   dataSource = ELEMENT_DATA;
 }
