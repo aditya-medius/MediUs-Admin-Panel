@@ -30,7 +30,7 @@ import  {HospitalComponent} from "src/app/pages/hospital/hospital.component"
     ClipboardModule,
     MatSlideToggleModule,
     SharedModule,
-    ComponentsModule
+    ComponentsModule,
   ],
   declarations: [
     DashboardComponent,
