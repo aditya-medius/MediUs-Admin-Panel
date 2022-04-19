@@ -4,6 +4,7 @@ import { SpecializationsService } from "src/app/services/specializations.service
 import { UserProfileComponent } from "../user-profile/user-profile.component";
 import { HttpService } from "src/app/services/http.service";
 import { ToastrService } from "ngx-toastr";
+import { FormControl, FormGroup } from "@angular/forms";
 
 export interface PeriodicElement {
   image: string;
@@ -24,11 +25,14 @@ export class SpecializationsComponent
   textInput = "";
   displayValue: string;
   posts: any;
+  signupForm:  FormGroup;
+
   constructor(
     private specializationService: SpecializationsService,
     private httpService: HttpService,
     protected toastr?: ToastrService
   ) {
+
     super();
   }
 
@@ -60,6 +64,27 @@ export class SpecializationsComponent
       },
     ];
 
+  }
+  onSubmit() {
+    console.log(this.signupForm);
+    console.log(this.signupForm.get("user_name").value);
+    }
+  
+
+  onClick(event){
+    console.log(this.textInput);
+
+    this.httpService.dataFun(this.textInput).subscribe(
+      (result:any) => {        
+          if (result.status === 200) {
+            this.toastr.success(result.message);
+            console.log(result);
+          } 
+          else {
+            this.toastr.error(
+              "Unload Function"
+            )
+
     this.httpService
       .getListOfSpecialityBodyPartAndDisease()
       .subscribe((result: any) => {
@@ -81,6 +106,7 @@ export class SpecializationsComponent
             this.toastr.success(result.message);
           } else {
             this.toastr.error("Upload unsuccessful.");
+
           }
         });
       } else {
