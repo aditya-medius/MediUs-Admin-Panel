@@ -18,6 +18,8 @@ import { SpecializationsComponent } from './pages/specializations/specialization
 import { SpecializationsMappingComponent } from './pages/specializations-mapping/specializations-mapping.component';
 import { SharedModule } from "./shared/shared.module";
 import {MatTableModule} from '@angular/material/table';
+import { ReactiveFormsModule } from "@angular/forms";
+
 
 @NgModule({
   imports: [
@@ -31,6 +33,7 @@ import {MatTableModule} from '@angular/material/table';
     ToastrModule.forRoot(),
     SharedModule,
     MatTableModule,
+    ReactiveFormsModule,
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, 
   SpecializationsComponent, SpecializationsMappingComponent],

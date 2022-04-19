@@ -8,7 +8,6 @@ import { environment } from "src/environments/environment";
 export class HttpService {
   constructor(private http: HttpClient) {}
   apiUrl: string = environment.apiUrl;
-
   dataFun(para) {
     return this.http.post(`${this.apiUrl}/admin/addSpeciality`, {
       specialityName: para,

@@ -18,13 +18,12 @@
     </div>
   </div>
 </div>
-
-<div *ngFor="let user of arr"></div>
 <div class="fill">
   <div class="form-group">
     <h2>Specialization upload</h2>
     <label for="file"> File</label>
     <input
+      #fileInput
       type="file"
       id="file"
       (change)="uploadSpecialization($event.target.files)"
@@ -32,7 +31,7 @@
     <br />
     <input type="text" placeholder="Enter here" [(ngModel)]="textInput" />
     &nbsp;&nbsp;
-    <button class="btn-success" (click)="onClick()">Upload</button>
+    <button class="btn btn-success" (click)="onClick()">Success</button>
 
     <p>{{ displayValue }}</p>
   </div>
@@ -57,7 +56,7 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
-<div *ngFor="let com of data"></div>
+
 <br /><br /><br />
 <div class="container-fluid mt--7">
   <div class="row d-flex justify-content-center">
@@ -129,18 +128,6 @@
         *ngIf="last"
         [I1S1-options]="data"
       ></app-input-one-select-one>
-      <!-- <div class="card bg-secondary shadow">
-          <div class="card-header bg-white border-0">
-            <div class="row align-items-center">
-              <div class="col-8">
-                <h3 class="mb-0">City</h3>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-          </div>
-        </div> -->
-      <!-- </div>-->
     </div>
   </div>
 </div>

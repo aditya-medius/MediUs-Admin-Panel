@@ -10,4 +10,9 @@ export class UtilService {
   apiUrl = (): string => {
     return environment.apiUrl;
   };
+
+  getToken = (): string => {
+    let token = JSON.parse(localStorage.getItem("admin")).data;
+    return token;
+  };
 }
