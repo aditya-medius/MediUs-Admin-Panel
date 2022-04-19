@@ -1,14 +1,15 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root",
 })
 export class HttpService {
   constructor(private http: HttpClient) {}
-
+  apiUrl: string = environment.apiUrl;
   dataFun(para) {
-    return this.http.post("http://3.21.52.154:3000/admin/addSpeciality", {
+    return this.http.post(`${this.apiUrl}/admin/addSpeciality`, {
       specialityName: para,
     });
   }
@@ -20,7 +21,7 @@ export class HttpService {
     });
     headers.append("Content-Type", "application/x-www-form-urlencoded");
     headers.append("Accept", "application/json");
-    return this.http.post("http://3.21.52.154:3000/common/uploadImage", form, {
+    return this.http.post(`${this.apiUrl}/common/uploadImage`, form, {
       headers: headers,
     });
   }
@@ -31,7 +32,7 @@ export class HttpService {
       "auth-header": token,
     });
     return this.http.get(
-      "http://3.21.52.154:3000/admin/getListOfSpecialityBodyPartAndDisease",
+      `${this.apiUrl}/admin/getListOfSpecialityBodyPartAndDisease`,
       {
         headers: headers,
       }
