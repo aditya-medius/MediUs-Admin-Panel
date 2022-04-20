@@ -10,7 +10,7 @@
             <tr>
               <th scope="col">{{ data.data.header }}</th>
               <th scope="col">Phone Number</th>
-              <th scope="col">Verified</th>
+              <th scope="col" *ngIf="toggleVerify">Verified</th>
             </tr>
           </thead>
           <tbody>
@@ -20,7 +20,10 @@
                   <!-- <a class="avatar rounded-circle mr-3">
                     <img [src]="d.image" (click)="navigateToDetailsPage"/>
                   </a> -->
-                  <div class="media-body" *ngIf="data.data.header == 'Doctors'">
+                  <div
+                    class="media-body"
+                    *ngIf="data.data.header == 'Patients'"
+                  >
                     <!-- (click)="navigateToDoctorDetailsPage(d)" -->
                     <span class="mb-0 text-sm"
                       >{{ d.firstName }} {{ d.lastName }}</span
@@ -38,7 +41,7 @@
               <td>
                 {{ d.phoneNumber ? d.phoneNumber : d.contactNumber }}
               </td>
-              <td>
+              <td *ngIf="toggleVerify">
                 <mat-slide-toggle
                   (change)="toggleVerify($event, d.id ? d.id : d._id)"
                   [checked]="d.verified"

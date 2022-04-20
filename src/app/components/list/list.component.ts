@@ -27,7 +27,9 @@ export class ListComponent implements OnInit {
       let listData = change.data.currentValue;
       this.length = this.data.data.list.length;
       this.paginate();
-      this.toggleVerify = listData.Fn;
+      if (listData.Fn) {
+        this.toggleVerify = listData.Fn;
+      }
     }
   }
 
@@ -40,11 +42,20 @@ export class ListComponent implements OnInit {
     return event;
   }
 
-  toggleVerify = (): void => {};
+  toggleVerify: Function | null = null;
 
   navigateToDoctorDetailsPage = (data: any) => {
     console.log("d:", data);
-    let {firstName, lastName, _id,hospitalDetails, gender, email,verified, phoneNumber } = data
+    let {
+      firstName,
+      lastName,
+      _id,
+      hospitalDetails,
+      gender,
+      email,
+      verified,
+      phoneNumber,
+    } = data;
   };
 
   navigateToHospitalDetailsPage = (data: any) => {

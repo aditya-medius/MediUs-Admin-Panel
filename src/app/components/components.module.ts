@@ -11,6 +11,7 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { SingleFieldFormComponent } from "./single-field-form/single-field-form.component";
 import { InputOneSelectOneComponent } from "./input-one-select-one/input-one-select-one.component";
 import { SelectTwoComponent } from "./select-two/select-two.component";
+import { InputTwoComponent } from './input-two/input-two.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { SelectTwoComponent } from "./select-two/select-two.component";
     SingleFieldFormComponent,
     InputOneSelectOneComponent,
     SelectTwoComponent,
+    InputTwoComponent,
   ],
   exports: [
     FooterComponent,

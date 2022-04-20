@@ -1,3 +1,4 @@
+import { HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 
@@ -14,5 +15,13 @@ export class UtilService {
   getToken = (): string => {
     let token = JSON.parse(localStorage.getItem("admin")).data;
     return token;
+  };
+
+  getHeader = (): HttpHeaders => {
+    let token = this.getToken();
+    const headers = new HttpHeaders({
+      "auth-header": token,
+    });
+    return headers;
   };
 }
