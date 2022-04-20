@@ -40,6 +40,18 @@ export class TableService {
     );
   };
 
+  getAllPatientList = () => {
+    return this.http
+      .get(`${this.apiUrl}/getAllPatientList`)
+      .pipe(map((data: any) => this.addHeaderNameToList(data, "Patients")));
+  };
+
+  getAllAppointmentList = () => {
+    return this.http
+      .get(`${this.apiUrl}/getAllAppointments`)
+      .pipe(map((data: any) => this.addHeaderNameToList(data, "Appointments")));
+  };
+
   verifyDoctors = (id: string) => {
     return this.http.put(`${this.apiUrl}/verifyDoctors/${id}`, {});
   };

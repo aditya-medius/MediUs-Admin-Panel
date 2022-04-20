@@ -43,9 +43,32 @@ export const ROUTES: RouteInfo[] = [
     icon: "ni-bullet-list-67 text-red",
     class: "",
   },
-  { path: "/login", title: "Logout", icon: "ni-key-25 text-info", class: "" },
   { path: "/doctor", title: "Doctor", icon: "ni-key-25 text-info", class: "" },
-  { path: "/hospital", title: "Hospital", icon: "ni-key-25 text-info", class: "" },
+  {
+    path: "/hospital",
+    title: "Hospital",
+    icon: "ni-key-25 text-info",
+    class: "",
+  },
+  {
+    path: "/user",
+    title: "Patients",
+    icon: "ni-key-25 text-info",
+    class: "",
+  },
+  {
+    path: "/qualification",
+    title: "Qualifications",
+    icon: "ni-key-25 text-info",
+    class: "",
+  },
+  {
+    path: "/appointment",
+    title: "Appointments",
+    icon: "ni-key-25 text-info",
+    class: "",
+  },
+  { path: "/login", title: "Logout", icon: "ni-key-25 text-info", class: "" },
 
   // {
   //   path: "/register",

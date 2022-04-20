@@ -9,7 +9,10 @@ import { AuthGuard } from "src/app/shared/auth.guard";
 import { SpecializationsComponent } from "src/app/pages/specializations/specializations.component";
 import { SpecializationsMappingComponent } from "src/app/pages/specializations-mapping/specializations-mapping.component";
 import { DoctorComponent } from "src/app/pages/doctor/doctor.component";
-import { HospitalComponent} from "src/app/pages/hospital/hospital.component";
+import { HospitalComponent } from "src/app/pages/hospital/hospital.component";
+import { QualificationComponent } from "src/app/pages/qualification/qualification.component";
+import { UserComponent } from "src/app/pages/user/user.component";
+import { AppointmentComponent } from "src/app/pages/appointment/appointment.component";
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -40,9 +43,24 @@ export const AdminLayoutRoutes: Routes = [
     path: "doctor",
     component: DoctorComponent,
   },
-   {
-     canActivate: [AuthGuard],
-     path: "hospital",
-     component: HospitalComponent,
-   }
+  {
+    canActivate: [AuthGuard],
+    path: "hospital",
+    component: HospitalComponent,
+  },
+  {
+    canActivate: [AuthGuard],
+    path: "qualification",
+    component: QualificationComponent,
+  },
+  {
+    canActivate: [AuthGuard],
+    path: "user",
+    component: UserComponent,
+  },
+  {
+    canActivate: [AuthGuard],
+    path: "appointment",
+    component: AppointmentComponent,
+  },
 ];

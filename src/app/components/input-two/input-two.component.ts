@@ -1,13 +1,12 @@
 import { Component, Input, OnInit, SimpleChanges } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
-
 @Component({
-  selector: "app-single-field-form",
-  templateUrl: "./single-field-form.component.html",
-  styleUrls: ["./single-field-form.component.scss"],
+  selector: "app-input-two",
+  templateUrl: "./input-two.component.html",
+  styleUrls: ["./input-two.component.scss"],
 })
-export class SingleFieldFormComponent implements OnInit {
+export class InputTwoComponent implements OnInit {
   constructor(protected fb?: FormBuilder, protected toastr?: ToastrService) {}
 
   @Input("sff-options") sff_Options: any | null = null;
