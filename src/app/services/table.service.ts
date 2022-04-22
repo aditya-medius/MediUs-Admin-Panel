@@ -52,6 +52,25 @@ export class TableService {
       .pipe(map((data: any) => this.addHeaderNameToList(data, "Appointments")));
   };
 
+  getAllAnemities = () => {
+    return this.http
+      .get(`${this.apiUrl}/getAllAnemities`, { headers: this.util.getHeader() })
+      .pipe(map((data: any) => this.addHeaderNameToList(data, "Anemities")));
+  };
+
+  addAnemities = (anemity: string, anemityType: string) => {
+    return this.http.post(
+      `${this.apiUrl}/addAnemities`,
+      {
+        name: anemity,
+        anemityType: anemityType,
+      },
+      {
+        headers: this.util.getHeader(),
+      }
+    );
+  };
+
   verifyDoctors = (id: string) => {
     return this.http.put(`${this.apiUrl}/verifyDoctors/${id}`, {});
   };
