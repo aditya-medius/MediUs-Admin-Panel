@@ -438,5 +438,58 @@
     [I1S1-options]="sff_data"
   ></app-input-one-select-one>
   <!-- Dark table -->
-  <app-list [data]="{ data: anemityData }"></app-list>
+  <div class="row mt-5">
+    <div class="col" *ngIf="anemityData">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0">{{ anemityData.header }}</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">{{ anemityData.header }}</th>
+                <th scope="col">Anemity Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let d of anemityData.list">
+                <th scope="row">
+                  <div class="media align-items-center">
+                    <div class="media-body">
+                      <!-- (click)="navigateToDoctorDetailsPage(d)" -->
+                      <span class="mb-0 text-sm">{{ d.name }}</span>
+                    </div>
+                  </div>
+                </th>
+                <th scope="row">
+                  <div class="media align-items-center">
+                    <div class="media-body">
+                      <!-- (click)="navigateToDoctorDetailsPage(d)" -->
+                      <span class="mb-0 text-sm">{{ d.anemityType }}</span>
+                    </div>
+                  </div>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <mat-paginator
+    [length]="length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = paginate($event)"
+    aria-label="Select page"
+  >
+  </mat-paginator> -->
+
+  <!-- <div *ngIf="pageEvent">
+    <h5>Page Change Event Properties</h5>
+    <div>List length: {{ pageEvent.length }}</div>
+    <div>Page size: {{ pageEvent.pageSize }}</div>
+    <div>Page index: {{ pageEvent.pageIndex }}</div>
+  </div> -->
 </div>
