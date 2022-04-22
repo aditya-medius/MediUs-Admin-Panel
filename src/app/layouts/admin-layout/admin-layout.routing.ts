@@ -13,6 +13,7 @@ import { HospitalComponent } from "src/app/pages/hospital/hospital.component";
 import { QualificationComponent } from "src/app/pages/qualification/qualification.component";
 import { UserComponent } from "src/app/pages/user/user.component";
 import { AppointmentComponent } from "src/app/pages/appointment/appointment.component";
+import { AnemitiesComponent } from "src/app/pages/anemities/anemities.component";
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -62,5 +63,10 @@ export const AdminLayoutRoutes: Routes = [
     canActivate: [AuthGuard],
     path: "appointment",
     component: AppointmentComponent,
+  },
+  {
+    canActivate: [AuthGuard],
+    path: "anemities",
+    component: AnemitiesComponent,
   },
 ];
