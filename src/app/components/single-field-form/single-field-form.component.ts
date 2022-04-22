@@ -31,7 +31,6 @@ export class SingleFieldFormComponent implements OnInit {
           (error: any) => this.toastr.error(error.message)
         );
       };
-      console.log("DSsddssd:", options);
       this.title = options["title"];
     }
   }

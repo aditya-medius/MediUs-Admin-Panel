@@ -37,12 +37,12 @@ export const ROUTES: RouteInfo[] = [
     // ni ni-square-pin text-yellow
     class: "",
   },
-  {
-    path: "/tables",
-    title: "Tables",
-    icon: "ni-bullet-list-67 text-red",
-    class: "",
-  },
+  // {
+  //   path: "/tables",
+  //   title: "Tables",
+  //   icon: "ni-bullet-list-67 text-red",
+  //   class: "",
+  // },
   { path: "/doctor", title: "Doctor", icon: "ni-key-25 text-info", class: "" },
   {
     path: "/hospital",
@@ -65,6 +65,12 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/appointment",
     title: "Appointments",
+    icon: "ni-key-25 text-info",
+    class: "",
+  },
+  {
+    path: "/anemities",
+    title: "Anemities",
     icon: "ni-key-25 text-info",
     class: "",
   },

@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { QualificationComponent } from './pages/qualification/qualification.component';
 import { UserComponent } from './pages/user/user.component';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
+import { AnemitiesComponent } from './pages/anemities/anemities.component';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { AppointmentComponent } from './pages/appointment/appointment.component'
     ReactiveFormsModule,
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, 
-  SpecializationsComponent, SpecializationsMappingComponent, QualificationComponent, UserComponent, AppointmentComponent],
+  SpecializationsComponent, SpecializationsMappingComponent, QualificationComponent, UserComponent, AppointmentComponent, AnemitiesComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
