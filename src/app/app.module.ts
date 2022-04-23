@@ -19,6 +19,10 @@ import { SpecializationsMappingComponent } from './pages/specializations-mapping
 import { SharedModule } from "./shared/shared.module";
 import {MatTableModule} from '@angular/material/table';
 import { ReactiveFormsModule } from "@angular/forms";
+import { QualificationComponent } from './pages/qualification/qualification.component';
+import { UserComponent } from './pages/user/user.component';
+import { AppointmentComponent } from './pages/appointment/appointment.component';
+import { AnemitiesComponent } from './pages/anemities/anemities.component';
 
 
 @NgModule({
@@ -36,7 +40,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     ReactiveFormsModule,
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, 
-  SpecializationsComponent, SpecializationsMappingComponent],
+  SpecializationsComponent, SpecializationsMappingComponent, QualificationComponent, UserComponent, AppointmentComponent, AnemitiesComponent],
   providers: [],
   bootstrap: [AppComponent],
 })

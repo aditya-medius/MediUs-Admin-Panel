@@ -57,6 +57,30 @@ export const ROUTES: RouteInfo[] = [
     icon: "ni-key-25 text-info",
     class: "",
   },
+  {
+    path: "/user",
+    title: "Patients",
+    icon: "ni-key-25 text-info",
+    class: "",
+  },
+  {
+    path: "/qualification",
+    title: "Qualifications",
+    icon: "ni-key-25 text-info",
+    class: "",
+  },
+  {
+    path: "/appointment",
+    title: "Appointments",
+    icon: "ni-key-25 text-info",
+    class: "",
+  },
+  {
+    path: "/anemities",
+    title: "Anemities",
+    icon: "ni-key-25 text-info",
+    class: "",
+  },
   { path: "/login", title: "Logout", icon: "ni-key-25 text-info", class: "" },
 
   // {
