@@ -28,7 +28,7 @@ export class QualificationComponent implements OnInit {
   ELEMENT_DATA: [{ name: string; abbreviation: string }] = [
     { name: "", abbreviation: "" },
   ];
-  displayedColumns: string[] = ["name", "image"];
+  displayedColumns: string[] = ["name", "image", "action"];
   dataSource = this.ELEMENT_DATA;
 
   sff_data: any | null = null;
@@ -63,6 +63,7 @@ export class QualificationComponent implements OnInit {
           return {
             name: e.name,
             abbreviation: e.abbreviation,
+            id: e._id,
           };
         });
         this.dataSource = this.ELEMENT_DATA;
@@ -87,5 +88,22 @@ export class QualificationComponent implements OnInit {
       },
       (error: any) => this.toastr.error(error.message)
     );
+  };
+
+  deleteQualification = (id: string) => {
+    this.httpClient
+      .post(
+        `${this.apiUrl}/admin/deleteQualification/${id}`,
+        {},
+        {
+          headers: this.header,
+        }
+      )
+      .subscribe((result: any) => {
+        if (result.status === 200) {
+          this.toastr.success("Successfully deleted qualification");
+          this.getQualificationList();
+        }
+      });
   };
 }

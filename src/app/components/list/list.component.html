@@ -22,7 +22,10 @@
                   </a> -->
                   <div
                     class="media-body"
-                    *ngIf="data.data.header == 'Patients'"
+                    *ngIf="
+                      data.data.header == 'Patients' ||
+                      data.data.header == 'Doctors'
+                    "
                   >
                     <!-- (click)="navigateToDoctorDetailsPage(d)" -->
                     <span class="mb-0 text-sm"

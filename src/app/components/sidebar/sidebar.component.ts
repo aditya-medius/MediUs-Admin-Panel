@@ -23,6 +23,13 @@ export const ROUTES: RouteInfo[] = [
     // ni ni-square-pin text-yellow
     class: "",
   },
+  // {
+  //   path: "/specializations",
+  //   title: "Specializations",
+  //   icon: "ni ni-tag text-blue",
+  //   // ni ni-square-pin text-yellow
+  //   class: "",
+  // },
   {
     path: "/specializations",
     title: "Specializations",
@@ -30,13 +37,13 @@ export const ROUTES: RouteInfo[] = [
     // ni ni-square-pin text-yellow
     class: "",
   },
-  {
-    path: "/specializations-mapping",
-    title: "Specializations-mapping",
-    icon: "ni ni-tag text-green",
-    // ni ni-square-pin text-yellow
-    class: "",
-  },
+  // {
+  //   path: "/specializations-mapping",
+  //   title: "Specializations-mapping",
+  //   icon: "ni ni-tag text-green",
+  //   // ni ni-square-pin text-yellow
+  //   class: "",
+  // },
   // {
   //   path: "/tables",
   //   title: "Tables",
@@ -74,7 +81,15 @@ export const ROUTES: RouteInfo[] = [
     icon: "ni-key-25 text-info",
     class: "",
   },
+  {
+    path: "/services",
+    title: "Services",
+    icon: "ni-key-25 text-info",
+    class: "",
+  },
+  { path: "/ownership", title: "Ownership", icon: "ni-key-25 text-info", class: "" },
   { path: "/login", title: "Logout", icon: "ni-key-25 text-info", class: "" },
+  
 
   // {
   //   path: "/register",

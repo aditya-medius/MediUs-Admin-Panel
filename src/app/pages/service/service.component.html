@@ -1,0 +1,73 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <app-input-one-select-one
+    [I1S1-options]="sff_data"
+  ></app-input-one-select-one>
+  <!-- Dark table -->
+  <div class="row mt-5">
+    <!-- <div class="col" *ngIf="anemityData"> -->
+    <div class="col">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0">Services</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Service Name</th>
+                <th scope="col">Service Type</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let d of speciality">
+                <!-- <tr> -->
+                <th scope="row">
+                  <div class="media align-items-center">
+                    <div class="media-body">
+                      <!-- (click)="navigateToDoctorDetailsPage(d)" -->
+                      <!-- <span class="mb-0 text-sm">{{ d.name }}</span> -->
+                      <span class="mb-0 text-sm">{{ d.name }}</span>
+                    </div>
+                  </div>
+                </th>
+                <th scope="row">
+                  <div class="media align-items-center">
+                    <div class="media-body">
+                      <!-- (click)="navigateToDoctorDetailsPage(d)" -->
+                      <!-- <span class="mb-0 text-sm">a</span> -->
+                      <span class="mb-0 text-sm">{{ d.serviceType }}</span>
+                    </div>
+                  </div>
+                </th>
+                <th scope="row">
+                  <div class="media align-items-center">
+                    <div class="media-body">
+                      <!-- (click)="navigateToDoctorDetailsPage(d)" -->
+                      <!-- <span class="mb-0 text-sm">a</span> -->
+                      <button
+                        (click)="deleteService(d._id)"
+                        class="mb-0 text-sm"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
