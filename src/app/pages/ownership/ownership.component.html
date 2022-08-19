@@ -1,0 +1,49 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body"></div>
+  </div>
+</div>
+
+<div class="container-fluid mt--7">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xl-8 order-xl-1 mt-4">
+      <app-single-field-form [sff-options]="fieldData"></app-single-field-form>
+    </div>
+  </div>
+</div>
+<br /><br /><br /><br /><br /><br /><br />
+<div class="container-fluid mt--7">
+  <div *ngIf="ownershipList">
+    <div class="card bg-default shadow">
+      <div class="card-header bg-transparent border-0">
+        <h3 class="text-white mb-0">Ownership</h3>
+        <h3 class="text-white mb-0"></h3>
+      </div>
+      <div class="table-responsive">
+        <table class="table align-items-center table-dark table-flush">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Ownership Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let d of ownershipList">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <span class="mb-0 text-sm">{{ d.owner }}</span>
+                </div>
+              </th>
+              <th scope="row">
+                <div class="media align-items-center">
+                  <button (click)="deleteOwnership(d._id)" class="mb-0 text-sm">
+                    Delete
+                  </button>
+                </div>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

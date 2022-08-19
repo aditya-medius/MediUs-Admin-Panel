@@ -450,6 +450,7 @@
               <tr>
                 <th scope="col">{{ anemityData.header }}</th>
                 <th scope="col">Anemity Type</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
@@ -467,6 +468,16 @@
                     <div class="media-body">
                       <!-- (click)="navigateToDoctorDetailsPage(d)" -->
                       <span class="mb-0 text-sm">{{ d.anemityType }}</span>
+                    </div>
+                  </div>
+                </th>
+                <th scope="row">
+                  <div class="media align-items-center">
+                    <div class="media-body">
+                      <!-- (click)="navigateToDoctorDetailsPage(d)" -->
+                      <span class="mb-0 text-sm">
+                        <button (click)="deleteAnemities(d._id)">Delete</button>
+                      </span>
                     </div>
                   </div>
                 </th>
