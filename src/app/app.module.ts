@@ -23,6 +23,8 @@ import { QualificationComponent } from './pages/qualification/qualification.comp
 import { UserComponent } from './pages/user/user.component';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { AnemitiesComponent } from './pages/anemities/anemities.component';
+import { ServiceComponent } from './pages/service/service.component';
+import { OwnershipComponent } from './pages/ownership/ownership.component';
 
 
 @NgModule({
@@ -40,7 +42,7 @@ import { AnemitiesComponent } from './pages/anemities/anemities.component';
     ReactiveFormsModule,
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, 
-  SpecializationsComponent, SpecializationsMappingComponent, QualificationComponent, UserComponent, AppointmentComponent, AnemitiesComponent],
+  SpecializationsComponent, SpecializationsMappingComponent, QualificationComponent, UserComponent, AppointmentComponent, AnemitiesComponent, ServiceComponent, OwnershipComponent],
   providers: [],
   bootstrap: [AppComponent],
 })

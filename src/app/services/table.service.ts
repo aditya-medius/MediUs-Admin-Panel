@@ -71,6 +71,12 @@ export class TableService {
     );
   };
 
+  deleteAnemities = (id: string) => {
+    return this.http.get(`${this.apiUrl}/deleteAnemities/${id}`, {
+      headers: this.util.getHeader(),
+    });
+  };
+
   verifyDoctors = (id: string) => {
     return this.http.put(`${this.apiUrl}/verifyDoctors/${id}`, {});
   };

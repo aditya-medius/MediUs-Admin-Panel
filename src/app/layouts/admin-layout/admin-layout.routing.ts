@@ -14,6 +14,8 @@ import { QualificationComponent } from "src/app/pages/qualification/qualificatio
 import { UserComponent } from "src/app/pages/user/user.component";
 import { AppointmentComponent } from "src/app/pages/appointment/appointment.component";
 import { AnemitiesComponent } from "src/app/pages/anemities/anemities.component";
+import { ServiceComponent } from "src/app/pages/service/service.component";
+import { OwnershipComponent } from "src/app/pages/ownership/ownership.component";
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -68,5 +70,15 @@ export const AdminLayoutRoutes: Routes = [
     canActivate: [AuthGuard],
     path: "anemities",
     component: AnemitiesComponent,
+  },
+  {
+    canActivate: [AuthGuard],
+    path: "services",
+    component: ServiceComponent,
+  },
+  {
+    canActivate: [AuthGuard],
+    path: "ownership",
+    component: OwnershipComponent,
   },
 ];
