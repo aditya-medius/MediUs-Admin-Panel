@@ -88,6 +88,7 @@ export const ROUTES: RouteInfo[] = [
     class: "",
   },
   { path: "/ownership", title: "Ownership", icon: "ni-key-25 text-info", class: "" },
+  { path: "/fee", title: "Fee", icon: "ni-key-25 text-info", class: "" },
   { path: "/login", title: "Logout", icon: "ni-key-25 text-info", class: "" },
   
 

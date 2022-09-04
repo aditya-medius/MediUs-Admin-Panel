@@ -16,6 +16,7 @@ import { AppointmentComponent } from "src/app/pages/appointment/appointment.comp
 import { AnemitiesComponent } from "src/app/pages/anemities/anemities.component";
 import { ServiceComponent } from "src/app/pages/service/service.component";
 import { OwnershipComponent } from "src/app/pages/ownership/ownership.component";
+import { FeeComponent } from "src/app/pages/fee/fee.component";
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -80,5 +81,10 @@ export const AdminLayoutRoutes: Routes = [
     canActivate: [AuthGuard],
     path: "ownership",
     component: OwnershipComponent,
+  },
+  {
+    canActivate: [AuthGuard],
+    path: "fee",
+    component: FeeComponent,
   },
 ];
