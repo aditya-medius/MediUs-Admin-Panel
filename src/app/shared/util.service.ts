@@ -1,15 +1,19 @@
 import { HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root",
 })
 export class UtilService {
+  private localUrl: string = localStorage.getItem("envUrl") as string;
   constructor() {}
 
   apiUrl = (): string => {
-    return environment.apiUrl;
+    console.log("DSjdsjdsndssd", this.localUrl);
+    return this.localUrl ?? environment.apiUrl;
+    // return this.env;
   };
 
   getToken = (): string => {

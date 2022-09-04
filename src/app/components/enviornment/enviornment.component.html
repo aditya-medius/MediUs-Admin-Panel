@@ -1,0 +1,10 @@
+<select
+  formControlName="select"
+  (change)="onEnvChange($event.target.value)"
+  class="form-control form-control-alternative"
+  [value]="localUrl"
+>
+  <option value="http://18.220.60.149:3000" selected>Medius-Production</option>
+  <option value="http://3.141.91.35:3000" selected>Medius-test/stage</option>
+  <option value="http://3.18.254.171:3000" selected>Medius-Dev</option>
+</select>

@@ -12,6 +12,7 @@ import { SingleFieldFormComponent } from "./single-field-form/single-field-form.
 import { InputOneSelectOneComponent } from "./input-one-select-one/input-one-select-one.component";
 import { SelectTwoComponent } from "./select-two/select-two.component";
 import { InputTwoComponent } from './input-two/input-two.component';
+import { EnviornmentComponent } from './enviornment/enviornment.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { InputTwoComponent } from './input-two/input-two.component';
     InputOneSelectOneComponent,
     SelectTwoComponent,
     InputTwoComponent,
+    EnviornmentComponent,
   ],
   exports: [
     FooterComponent,
