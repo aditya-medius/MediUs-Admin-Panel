@@ -11,7 +11,6 @@ export class UtilService {
   constructor() {}
 
   apiUrl = (): string => {
-    console.log("DSjdsjdsndssd", this.localUrl);
     return this.localUrl ?? environment.apiUrl;
     // return this.env;
   };

@@ -1,13 +1,15 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "src/environments/environment";
+import { UtilService } from "../shared/util.service";
 
 @Injectable({
   providedIn: "root",
 })
 export class HttpService {
-  constructor(private http: HttpClient) {}
-  apiUrl: string = environment.apiUrl;
+  constructor(private http: HttpClient, private util: UtilService) {}
+  // apiUrl: string = environment.apiUrl;
+  apiUrl: string = this.util.apiUrl();
   dataFun(para) {
     return this.http.post(`${this.apiUrl}/admin/addSpeciality`, {
       specialityName: para,
